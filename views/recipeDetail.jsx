@@ -7,6 +7,8 @@ class RecipeDetail extends React.Component {
             return <div className="card">Recipe Not Found</div>;
         }
 
+        const imageUrl = `/img/recipes/${recipe.id}.webp`; // Construct the image URL dynamically
+
         return (
             <html>
                 <head>
@@ -18,16 +20,19 @@ class RecipeDetail extends React.Component {
                 </head>
                 <body>
                     <div className='card'>
-                        <h1>{recipe.name}</h1>
-                        <p>Description: {recipe.description}</p>
-                        <p>Components Required:</p>
-                        <ul>
-                            {recipe.components.map((component) => (
-                                <li key={component.name}>{component.name}: {component.amount}</li>
-                            ))}
-                        </ul>
-                        <p className="category">Category: {recipe.category}</p>
-                        <p className="used-in">Used In: {recipe.usedInRecipes.join(", ") || "TBD"}</p>
+                    <img src={imageUrl} className="card-image" alt={`Image for ${recipe.name}`} />
+                    <div className="card-content">
+                            <h1>{recipe.name}</h1>
+                            <p>Description: {recipe.description}</p>
+                            <p>Components Required:</p>
+                            <ul>
+                                {recipe.components.map((component) => (
+                                    <li key={component.name}>{component.name}: {component.amount}</li>
+                                ))}
+                            </ul>
+                            <p className="category">Category: {recipe.category}</p>
+                            <p className="used-in">Used In: {recipe.usedInRecipes.join(", ") || "TBD"}</p>
+                        </div>
                     </div>
                 </body>
             </html>

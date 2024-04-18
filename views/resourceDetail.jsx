@@ -7,6 +7,8 @@ class ResourceDetail extends React.Component {
             return <div className="card">Resource Not Found</div>;
         }
 
+        const imageUrl = `/img/resources/${resource.id}.webp`; // Construct the image URL dynamically
+
         return (
             <html>
                 <head>
@@ -16,10 +18,13 @@ class ResourceDetail extends React.Component {
                 </head>
                 <body>
                     <div className='card'>
-                        <h1>{resource.name}</h1>
-                        <p>Description: {resource.description}</p>
-                        <p className="location">Location: {resource.location}</p>
-                        <p className="used-in">Used In: {resource.usedInRecipes.join(", ") || "TBD"}</p>
+                        <img src={imageUrl} className="card-image" alt={`Image for ${resource.name}`} />
+                        <div className="card-content">
+                            <h1>{resource.name}</h1>
+                            <p>Description: {resource.description}</p>
+                            <p className="location">Location: {resource.location}</p>
+                            <p className="used-in">Used In: {resource.usedInRecipes.join(", ") || "TBD"}</p>
+                        </div>
                     </div>
                 </body>
             </html>

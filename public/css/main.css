@@ -69,12 +69,33 @@ button:hover {
 
 /* Card style for each resource or recipe */
 .card {
-    width: 80%; /* Adjust width as needed */
-    margin: auto; /* Center in the available space */
-    background-color: #333; /* Background color */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside the card */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Shadow for depth */
+    position: relative;
+    width: 300px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    overflow: hidden; /* Ensures no overflow of content */
+}
+
+.card-image {
+    width: 100%; /* Full width of the card */
+    height: 150px; /* Fixed height for the image */
+    object-fit: cover; /* Cover the area without distorting the image */
+    border-top-left-radius: 8px; /* Match the card's top-left corner */
+    border-top-right-radius: 8px; /* Match the card's top-right corner */
+}
+
+.card-content {
+    position: absolute;
+    top: 150px; /* Position below the image */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    overflow-y: auto; /* Allows scrolling within the card content if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background for the content */
 }
 
 /* Heading styles for resource or recipe title */
