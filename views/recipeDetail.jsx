@@ -3,22 +3,32 @@ const React = require('react');
 class RecipeDetail extends React.Component {
     render() {
         const { recipe } = this.props;
+        if (!recipe) {
+            return <div className="card">Recipe Not Found</div>;
+        }
+
         return (
             <html>
                 <head>
                     <title>{recipe.name}</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+                    <link rel="stylesheet" href="/css/main.css" />
+
+
                 </head>
                 <body>
-                    <h1>{recipe.name}</h1>
-                    <p>Description: {recipe.description}</p>
-                    <p>Components Required:</p>
-                    <ul>
-                        {recipe.components.map((component) => (
-                            <li key={component.name}>{component.name}: {component.amount}</li>
-                        ))}
-                    </ul>
-                    <p>Category: {recipe.category}</p>
-                    <p>Used In: {recipe.usedInRecipes.join(", ")}</p>
+                    <div className='card'>
+                        <h1>{recipe.name}</h1>
+                        <p>Description: {recipe.description}</p>
+                        <p>Components Required:</p>
+                        <ul>
+                            {recipe.components.map((component) => (
+                                <li key={component.name}>{component.name}: {component.amount}</li>
+                            ))}
+                        </ul>
+                        <p className="category">Category: {recipe.category}</p>
+                        <p className="used-in">Used In: {recipe.usedInRecipes.join(", ") || "TBD"}</p>
+                    </div>
                 </body>
             </html>
         );

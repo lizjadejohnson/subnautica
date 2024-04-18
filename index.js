@@ -2,14 +2,17 @@ require('events').EventEmitter.defaultMaxListeners = 15; // Increase the limit
 
 const express = require('express');
 const app = express();
+const path = require('path');
 
 // Data management
 const { updateUsageInRecipes } = require('./dataManager');
 const resources = require('./data/resources');
 const recipes = require('./data/recipes');
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Update relationships
+// Update data relationships
 updateUsageInRecipes(recipes, resources);
 
 
