@@ -12,7 +12,7 @@ class ResourceDetail extends React.Component {
                     <h1>{resource.name}</h1>
                     <p>Description: {resource.description}</p>
                     <p>Location: {resource.location}</p>
-                    <p>Used In: {resource.usedIn.join(", ")}</p>
+                    <p>Used In: {resource.usedInRecipes.join(", ")}</p>
                 </body>
             </html>
         );

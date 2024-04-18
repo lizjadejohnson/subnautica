@@ -1,5 +1,17 @@
+require('events').EventEmitter.defaultMaxListeners = 15; // Increase the limit
+
 const express = require('express');
 const app = express();
+
+// Data management
+const { updateUsageInRecipes } = require('./dataManager');
+const resources = require('./data/resources');
+const recipes = require('./data/recipes');
+
+
+// Update relationships
+updateUsageInRecipes(recipes, resources);
+
 
 // Setting up JSX View Engine
 app.set('views', __dirname + '/views'); // Directory for views
