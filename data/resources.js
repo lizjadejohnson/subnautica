@@ -13,6 +13,13 @@ const resources = [
         "location": "Limestone Outcrops",
         "usedIn": ["Battery", "Wire Kit"]
     },
+    {
+        "id": 3,
+        "name": "Quartz",
+        "description": "SiO4. Silica in crystalline form.",
+        "location": "Large Resource Deposits, Seabed",
+        "usedIn": ["Battery", "Wire Kit"]
+    },
     //Add more later!
   ];
 
