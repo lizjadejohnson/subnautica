@@ -25,14 +25,19 @@ class RecipeDetail extends React.Component {
                             <h1>{recipe.name}</h1>
                             <p>Description: {recipe.description}</p>
                             <p>Components Required:</p>
-                            <ul>
-                                {recipe.components.map((component) => (
-                                    <li key={component.name}>{component.name}: {component.amount}</li>
-                                ))}
-                            </ul>
+                                <ul>
+                                    {recipe.components && recipe.components.length > 0 ? (
+                                        recipe.components.map((component, index) => (
+                                            <li key={index}>{component.name}: {component.amount}</li>
+                                        ))
+                                    ) : (
+                                        <li>No components listed</li>
+                                    )}
+                                </ul>
+
                             <p className="category">Category: {recipe.category}</p>
                             <p className="used-in">Used In: {recipe.usedInRecipes.join(", ") || "TBD"}</p>
-                            <a href="/recipes" className="button">Back</a>
+                            <a href="/recipes"><button>⬅️ Back</button></a>
                         </div>
                     </div>
                 </body>

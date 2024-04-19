@@ -20,7 +20,8 @@ class Resources extends React.Component {
                                 </li>
                             ))}
                         </ul>
-                        <a href="/" className="button">⬅️ Home</a>
+                        <a href='/'><button className="button">⬅️ Home</button></a>
+                        <a href='/resources/add'><button className="button">➕ Add</button></a>
                     </div>
                 </body>
             </html>

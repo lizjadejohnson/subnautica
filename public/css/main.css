@@ -49,7 +49,7 @@ a:hover {
 }
 
 /* Adding styles for buttons */
-button {
+button, .button-link {
     background-color: #007BFF; /* Blue background */
     border: none; /* No border */
     color: white; /* White text */
@@ -61,13 +61,17 @@ button {
     margin: 4px 2px; /* Margin around buttons */
     transition-duration: 0.4s; /* Smooth transition for hover effects */
     cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners for the button */
 }
 
-button:hover {
+button:hover, .button-link:hover {
     background-color: #0056b3; /* Darker blue on hover */
     color: white; /* Text color */
 }
 
+.button-link:hover, .button-link:focus, .button-link:active {
+    text-decoration: none;
+}
 
 .links-container a {
     display: flex;
@@ -159,3 +163,4 @@ button:hover {
 .card .used-in {
     color: #ffaa00;
 }
+
