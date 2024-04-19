@@ -9,19 +9,28 @@ const { updateUsageInRecipes } = require('./dataManager');
 const resources = require('./data/resources');
 const recipes = require('./data/recipes');
 
+// Log Request Middleware
+function logRequest(req, res, next) {
+    const now = new Date();
+    console.log(`Received request for ${req.url} at ${now.toISOString()}`);
+    next(); // Continue to the next middleware or route handler
+}
+
+// Apply logRequest middleware globally
+app.use(logRequest);
+
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Update data relationships
 updateUsageInRecipes(recipes, resources);
 
-
 // Setting up JSX View Engine
 app.set('views', __dirname + '/views'); // Directory for views
 app.set('view engine', 'jsx'); // Use .jsx files
 app.engine('jsx', require('express-react-views').createEngine());
 
-//Import our routes:
+// Import our routes:
 const routes = require('./routes/routes');
 app.use('/', routes);
 
