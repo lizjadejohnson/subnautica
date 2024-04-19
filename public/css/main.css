@@ -3,6 +3,7 @@
 /* General body styles */
 body {
     display: flex; /* Enable Flexbox */
+    flex-direction: column;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Full viewport height */
@@ -21,6 +22,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: #fff; /* White color for headers */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
+    display: block;
 }
 
 /* Link styles */
@@ -67,11 +69,32 @@ button:hover {
 }
 
 
+.links-container a {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center links horizontally */
+    margin: 10px auto; /* Vertical spacing between links and center horizontally */
+    padding: 10px 20px; /* Padding inside the link for better touch area and appearance */
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Text color */
+    text-align: center; /* Center the text inside the link */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Rounded corners for the button */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for 3D effect */
+    width: 80%; /* Set a specific width if needed or use max-content for width based on content */
+  }
+  
+  .links-container a:hover {
+    background-color: #0056b3; /* Darker shade on hover for interaction feedback */
+    color: white; /* Ensure text color remains the same on hover */
+  }
+  
+
 /* Card style for each resource or recipe */
 .card {
     position: relative;
     width: 300px; /* Fixed width */
-    height: 400px; /* Fixed height */
+    height: 500px; /* Fixed height */
     background-color: #333;
     border-radius: 8px;
     padding: 20px;
@@ -96,9 +119,11 @@ button:hover {
     padding: 20px;
     overflow-y: auto; /* Allows scrolling within the card content if needed */
     background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent background for the content */
+    align-content: center; /* Vertically align items in the center */
 }
 
-/* Heading styles for resource or recipe title */
+
+
 .card h1 {
     color: #00aaff;
     font-size: 24px;
@@ -125,12 +150,12 @@ button:hover {
 }
 
 /* Emphasize categories and locations */
-.category, .location {
+.card .category, .card .location {
     font-style: italic;
     color: #aad8ff;
 }
 
 /* 'Used In' section styling */
-.used-in {
+.card .used-in {
     color: #ffaa00;
 }

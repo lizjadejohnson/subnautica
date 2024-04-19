@@ -12,7 +12,14 @@ class Index extends React.Component {
 
         </head>
         <body>
-          <h1>{this.props.message}</h1>
+          <h1>
+            Subnautica Resource and Recipe Manager
+          </h1>
+          <div className="links-container">
+            <a href="/resources">Resources</a>
+            <a href="/recipes">Recipes</a>
+          </div>
+
         </body>
       </html>
     );

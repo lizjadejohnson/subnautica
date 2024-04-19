@@ -32,6 +32,7 @@ class RecipeDetail extends React.Component {
                             </ul>
                             <p className="category">Category: {recipe.category}</p>
                             <p className="used-in">Used In: {recipe.usedInRecipes.join(", ") || "TBD"}</p>
+                            <a href="/recipes" className="button">Back</a>
                         </div>
                     </div>
                 </body>

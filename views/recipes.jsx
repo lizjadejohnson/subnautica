@@ -1,6 +1,7 @@
 const React = require('react');
 class Recipes extends React.Component {
     render() {
+        const { recipes } = this.props; // Ensure recipes are passed as a prop
         return (
             <html>
                 <head>
@@ -10,7 +11,17 @@ class Recipes extends React.Component {
 
                 </head>
                 <body>
-                    <h1>{this.props.message}</h1>
+                <div className="content">
+                        <h1>Recipes</h1>
+                        <ul>
+                            {recipes.map(recipe => (
+                                <li key={recipe.id}>
+                                    <a href={`/recipes/${recipe.id}`}>{recipe.name}</a>
+                                </li>
+                            ))}
+                        </ul>
+                        <a href="/" className="button">⬅️ Home</a>
+                    </div>
                 </body>
             </html>
         );

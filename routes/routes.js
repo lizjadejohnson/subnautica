@@ -10,14 +10,14 @@ const resources = require('../data/resources');
 //      -----INDEX ROUTES-----     //
 
 router.get('/', (req, res) => {
-    res.render('Index', { title: 'Index', message: 'Welcome to the Home Page!' });
+    res.render('Index', { title: 'Index', message: 'Subnautica Resource and Recipe Manager' });
 });
 
 //      -----RESOURCES ROUTES-----     //
 
     //Get all resources:
 router.get('/resources', (req, res) => {
-    res.render('Resources', { title: 'Resource Catalog', message: 'A searchable database of all resources available in the game.', resources });
+    res.render('Resources', { title: 'Resource Guide', resources: resources });
 });
 
     //Get resource by ID:
@@ -32,7 +32,7 @@ router.get('/resources/:id', (req, res) => {
 
 //      -----RECIPES ROUTES-----     //
 router.get('/recipes', (req, res) => {
-    res.render('Recipes', { title: 'Recipe Guide', message: 'A list of crafting recipes and their required resources and where to find them.'});
+    res.render('Recipes', { title: 'Recipe Guide', recipes: recipes });
 });
 
 

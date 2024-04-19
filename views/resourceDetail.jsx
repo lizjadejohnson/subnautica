@@ -24,6 +24,8 @@ class ResourceDetail extends React.Component {
                             <p>Description: {resource.description}</p>
                             <p className="location">Location: {resource.location}</p>
                             <p className="used-in">Used In: {resource.usedInRecipes.join(", ") || "TBD"}</p>
+                            <a href="/resources" className="button">Back</a>
+
                         </div>
                     </div>
                 </body>
