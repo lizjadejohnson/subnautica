@@ -38,6 +38,9 @@ class RecipeDetail extends React.Component {
                             <p className="category">Category: {recipe.category}</p>
                             <p className="used-in">Used In: {recipe.usedInRecipes.join(", ") || "TBD"}</p>
                             <a href="/recipes"><button>⬅️ Back</button></a>
+                            <form action={`/recipes/${recipe.id}/delete`} method="POST">
+                                <button type="submit" className="button">❌ Delete Recipe</button>
+                            </form>
                         </div>
                     </div>
                 </body>

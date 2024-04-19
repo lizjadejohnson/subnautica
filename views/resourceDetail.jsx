@@ -25,6 +25,9 @@ class ResourceDetail extends React.Component {
                             <p className="location">Location: {resource.location}</p>
                             <p className="used-in">Used In: {resource.usedInRecipes.join(", ") || "TBD"}</p>
                             <a href="/resources"><button>⬅️ Back</button></a>
+                            <form action={`/resources/${resource.id}/delete`} method="POST">
+                                <button type="submit" className="button">❌ Delete</button>
+                            </form>
 
                         </div>
                     </div>

@@ -46,6 +46,17 @@ router.post('/resources/add', (req, res) => {
     res.redirect('/resources');
 });
 
+// POST route to delete a resource
+router.post('/resources/:id/delete', (req, res) => {
+    const resourceId = parseInt(req.params.id);
+    const index = resources.findIndex(r => r.id === resourceId);
+    if (index > -1) {
+        resources.splice(index, 1); // Remove the resource from the resources array
+        res.redirect('/resources'); // Redirect to the list of resources after
+    } else {
+        res.status(404).send('Resource not found');
+    }
+});
 
     //Get all resources:
 router.get('/resources', (req, res) => {
@@ -106,7 +117,19 @@ router.post('/recipes/add', (req, res) => {
     console.log('New recipe added:', newRecipe); // Log the new recipe object
     res.redirect('/recipes');
 });
-    
+
+// POST route to delete a recipe
+router.post('/recipes/:id/delete', (req, res) => {
+    const recipeId = parseInt(req.params.id);
+    const index = recipes.findIndex(r => r.id === recipeId);
+    if (index > -1) {
+        recipes.splice(index, 1); // Remove the recipe from the array
+        res.redirect('/recipes'); // Redirect to the list of recipes
+    } else {
+        res.status(404).send('Recipe not found');
+    }
+});
+
 
 
     //Get ALL Recipes:
